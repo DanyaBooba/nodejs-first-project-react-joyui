@@ -1,11 +1,18 @@
-const express = require('express');
-const app = express();
-const port = process.env.PORT || 8000;
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 8000
+
+// Создание GET маршрутов
+
+app.get('/', (req, res) => {
+    const data = {
+        route: '/',
+        routeName: 'Главная страница',
+        data: 'Вы получили данные с главной страницы'
+    }
+
+    res.send(data)
+})
 
 // Сообщение о том, что сервер запущен и прослушивает указанный порт
-app.listen(port, () => console.log(`Listening on port ${port}`));
-
-// Создание GET маршрута
-app.get('/express_backend', (req, res) => {
-    res.send({ express: 'YOUR EXPRESS BACKEND IS CONNECTED TO REACT' });
-});
+app.listen(port, () => console.log(`Слушаю порт ${port}`))
